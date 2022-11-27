@@ -27,7 +27,7 @@ public class tateti implements tatetiTDA {
     public boolean jugar(int nro_columna, int nro_fila) {
         boolean jugada= true;
         if(nuevo_tateti[nro_fila][nro_columna] == 0) {
-            nuevo_tateti[nro_fila][nro_columna]= 2;
+            nuevo_tateti[nro_fila][nro_columna] = 2;
         } else {
             jugada= false;
             System.out.println("Posición ya jugada, elegir otra");
@@ -47,26 +47,26 @@ public class tateti implements tatetiTDA {
         boolean posible = true; //Borrar
         boolean ok = true;
         if (jugada == 1) { //Jugada en horizontal
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < 4; i++) {
                 if (tablero[nroFila][i] == 2) {
                     ok = false;
                 }
             }
         } else if (jugada == 2) { //Jugada en vertical
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < 4; i++) {
                 if (tablero[i][nroCol] == 2) {
                     ok = false;
                 }
             }
         } else if (jugada == 3) { //Jugada en diagonal
             if (nroCol == 0) {
-                for (int i = 0; i < 2; i++) {
+                for (int i = 0; i < 4; i++) {
                     if (tablero[i][i] == 2) {
                         ok = false;
                     }
                 }
             } else if (nroCol == 2) {
-                for (int i = 0; i < 2; i++) {
+                for (int i = 0; i < 4; i++) {
                     if (tablero[i][nroCol] == 2) {
                         ok = false;
                     }
@@ -87,7 +87,7 @@ public class tateti implements tatetiTDA {
             boolean verif = false;
             while (!verif) {
                 verif = verificarPosicion(nroFilaMaquina, nroColumnaMaquina, nuevo_tateti);
-                if (verif == false) {
+                if (!verif) {
                     if (nroColumnaMaquina > 1) {
                         nroColumnaMaquina = 0; //Si es 2 la columna, paso a la fila de abajo
                         nroFilaMaquina++;

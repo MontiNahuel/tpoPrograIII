@@ -6,4 +6,5 @@ public interface tatetiTDA {
     boolean jugar(int nro_columna, int nro_fila);
     void jugarMaquina();
     int[][] getTablero();
+
 }
