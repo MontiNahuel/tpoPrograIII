@@ -8,30 +8,45 @@ public class funcionesJuego {
         boolean posible = true; //Borrar
         boolean ok = false;
         if (jugada == 1) { //Jugada en horizontal
-            for (int i = 0; i < 4; i++) {
-                if (tablero[nroFila][i] == nroJugador && i == 3) {
-                    ok = true;
+            int cont=0;
+            for (int i = 0; i < 3; i++) {
+                if (tablero[nroFila][i] == nroJugador) {
+                    cont++;
                 }
+            }
+            if(cont == 3) {
+                ok=true;
             }
         } else if (jugada == 2) { //Jugada en vertical
-            for (int i = 0; i < 4; i++) {
-                if (tablero[i][nroCol] == nroJugador && i == 3) {
-                    ok = true;
+            int cont= 0;
+            for (int i = 0; i < 3; i++) {
+                if (tablero[i][nroCol] == nroJugador) {
+                    cont++;
                 }
             }
+            if(cont == 3) {
+                ok=true;
+            }
         } else if (jugada == 3) { //Jugada en diagonal
+            int cont=0;
             if (nroCol == 0) {
-                for (int i = 0; i < 4; i++) {
-                    if (tablero[i][i] == nroJugador && i == 3) {
-                        ok = true;
+                for (int i = 0; i < 3; i++) {
+                    if (tablero[i][i] == nroJugador) {
+                        cont++;
                     }
                 }
+                if(cont == 3) {
+                    ok=true;
+                }
             } else if (nroCol == 2) {
-                for (int i = 0; i < 4; i++) {
-                    if (tablero[i][nroCol] == nroJugador && i == 3) {
-                        ok = true;
+                for (int i = 0; i < 3; i++) {
+                    if (tablero[i][nroCol] == nroJugador) {
+                        cont++;
                     }
                     nroCol--;
+                }
+                if(cont == 3) {
+                    ok=true;
                 }
             }
         }
@@ -51,7 +66,7 @@ public class funcionesJuego {
         while(!finalEncontrado && cont < 8) {
             if(matriz[fila][col] != 0 && fila==0 && (col==0 || col==2)) {
                 //FuncionBuscar3Seguidos -> Devuelve Booleano
-                for(int i = 0; i < 3; i++) {
+                for(int i = 0; i <= 3; i++) {
                     finalEncontrado = posibleJugada3Seguidas(matriz, fila, col, i, matriz[fila][col]);
                 }
             } else if (matriz[fila][col] != 0 && col > 0) {
